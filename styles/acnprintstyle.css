@@ -1,0 +1,20 @@
+/* General styles */
+    h1 { 
+	page-break-before: always 
+    }
+    h1, h2, h3,
+    h4, h5, h6 { 
+	page-break-after: avoid 
+    }
+    ul, ol, dl    { page-break-before: avoid }
+abbr, acronym, .help {
+    border-bottom: 1px dotted #333;
+}
+a:link, a:visited {
+    color: #781351;
+    text-decoration: none;
+}
+/* Single narrow column format*/
+#content {
+    width: 67%;/* Short line length for readability */
+    }
