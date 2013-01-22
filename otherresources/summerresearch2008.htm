@@ -1,0 +1,101 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB">
+<head>
+<title>ACN: Violin research</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<link rel="shortcut icon" href="../favicons/cambridge.ico"/>
+<link rel="stylesheet" type="text/css" href="../styles/acnstyle.css" media="screen" />
+<meta name="description" content="A page about the summer research I did in the long vacation 2008" />
+<meta name="keywords" content="violins, resonance" />
+<meta name="robots" content="index, follow" />
+</head>
+
+<body>
+
+<div id="content">
+
+<div id="body">
+
+<h1>Perception of the sound quality of violins</h1>
+
+<p>On this page, I outline some of the work which I have done in the long vacation 2008 as part of the undergraduate research opportunities programme (<a href="http://www.eng.cam.ac.uk/teaching/urops/">UROP</a>).  I have been working in a research group split between the departments of music, engineering and experimental psychology, looking into how violin sounds are perceived by violinists.  The ultimate aim of this research is to be able to relate how violins sound to their constructional details.  For example, how would changing the arching profile, or the type of wood used, affect the violin's richness?</p>
+
+<h2>Introduction</h2>
+
+<p>Although much research has been done on violin acoustics, including how sounds are changed when constructional details are changed, scientists know very little about whether we are capable of discerning these changes, and how we judge the sounds of violins based on their acoustical properties.  This is a very significant gap, since we need to know which changes will improve a violin's quality, and which will detract from it, and this depends on the perception of the sound by the listener.  We are therefore interested in listeners' perceptions of the qualities of violin sound, since it is these perceptual details which make one violin sound different from another.</p>
+
+<p>To investigate this field, a technique has been developed which allows us to hear how a wide range of real violins sound without having to worry about variations in playing.  Instead of achieving this by using a robotic violinist which repeats the same piece on a variety of real violins, the tests are virtual.  We start by measuring the forces recorded by piezoelectric sensors under the strings on a violin bridge, while the violin is being played normally.  These recordings are stored as standard force functions, which can later be applied to lots of different violins.  For each violin which we want to hear, its acoustical properties are measured in the laboratory, and then a computer model of the violin is produced, allowing us apply the standard force funtion and generate an accurate prediction of how the violin would sound playing that piece using digital filters.</p>
+
+<h2>Method</h2>
+
+<p>A violin can be modelled as a system which passes the player's input (the string vibrations) through a filter comprising the bridge and body, which together modify the sound by amplifying some frequencies but not others, and then radiate this modified sound as an output.  Due to the impedance jump between the strings and the bridge, there is little backward influence of the body vibrations on the string vibrations (though this is not the full story), and this justifies considering the violin as a one-way filter.</p>
+
+<p>By measuring the characteristics of this filter for different violins, we can build up a picture of what makes violins' sounds distinctive.  We can also modify the filters easily in a computer, and create many different virtual violins, whose properties we can control, to investigate exactly what makes a violin sound good.</p>
+
+<h2>Measuring the violinist's input</h2>
+
+<p>We can measure the violinist's input by constructing a modified violin in which transducers are placed underneath the strings to measure the force which is being applied to the bridge.</p>
+
+<img class="display" src="violintransducers.jpg" alt="Tranducers under the strings are used to measure the player's input" height="195" width="254" />
+
+<p>On this violin, a piece of music can be played and the forces recorded.  You can see the wires which connect to the transducers on either side of the bridge in the picture above.  When a violinist bows the strings, their vibration is recorded electronically by the tranducers, and this is stored by the computer for later use.</p>
+
+<h2>Measuring the violin's response</h2>
+
+<p>The violin's response is then measured, to see how it changes the signal which is input via the strings.  If we know the response of the violin - how much it will respond to any frequency or pitch of vibration - we can calculate how the violin will react for any driving force on the bridge.</p>
+
+<p>We could do this by fitting a transducer to the violin and actually driving it at each frequency, to see how it responds.  Gradually we could building up a graph of how much the violin will vibrate in sympathy with the driving vibration against frequency, called an admittance curve.  The amount of vibration which the violin undergoes must be recorded as the driving frequency is changed, and this would be a time consuming and tedious experiment.</p>
+
+<p>An alternative method, making use of the magic of Fourier transforms, which is much more efficient, is as follows: we could attach a microphone as before, and then hit the violin with a hammer (!), recording the microphone output.  A computer can be used to process the microphone output mathematically by taking the Fourier transform, a mathematical trick which will give us the admittance curve, allowing us to examine the violin's resonance behaviour.</p>
+
+<img class="display" src="violinhammer.jpg" alt="The miniature force hammer used to transmit an impulse to the violin bridge" height="167" width="254" /><br />
+<em>Of course, we only use a small hammer to hit the violin's bridge!</em>
+
+<p>This is a subtle technique, and it works due to the mathematical details of Fourier theory.  The hammer provides a sharp impulse, or 'kick', to the violin, which is represented mathematically by something called a <em>delta function</em> - really just a sharp spike.  We have already said that, if we were to know the response function, we should be able to work out the response to any applied force.  In order to create a delta function, all frequencies must be used equally, and so, to work out the response to such a spike of force, we should take it apart into all its frequencies (a trick called a Fourier transform), work out the response of the violin to each frequency (remember, we have an admittance curve to do this), and then add all the responses back up to get the overall response to the hammer blow (this adding up is called an inverse Fourier transform).</p>
+
+<p>In our method, we don't want to find out the response to a delta function, since that's what we can actually measure.  From that, we need to work out how to find the admittance curve.  To do so, we follow the process backwards, by applying a Fourier transform to the measured response to the hammer's force spike.  Since the delta function spike contains all frequencies equally, it excites the violin equally at all frequencies, and so this will actually be the admittance curve (though multiplied by some constant, depending on how hard the hammer hit - we don't mind about this, since we're interested in the shape of the curve).  We can even do a bit better than this, by using a hammer with a built in accelerometer which measures the actual force applied, and getting the computer to analyze this and incorporate it into the calculation, so we don't just presume that the delta function is a good approximation to the hammer's impulse.</p>
+
+<p>We actually measure the response of the violin to the impact of the hammer by using a laser aimed at the other side of the bridge.  This accurately measures the tiny changes in the frequency of the light returned from the bridge as it is vibrating back and forth, or <em>doppler shift</em>, which allows the computer to work out the bridge's line-of-sight velocity, and from that, how the bridge moves and vibrates after the hammer has hit it.  You can just see the laser shining onto the corner of the bridge on the image below (a little reflective dust is rubbed gently onto the wood to enhance the reflection).</p>
+
+<img class="display" src="violinlaser.jpg" alt="A laser is used to record the response of the bridge to the hammer's impulse" height="183" width="254" />
+
+<p>The technique is totally safe for the violin, and has been used on instruments worth many thousands of pounds.  As part of my summer placement, I was allowed to do the measurements on <a href="myviolin.htm">my own violin</a>.</p>
+
+<h2>Making virtual violins</h2>
+
+<p>Once the violin response is represented in digital filter form, it becomes very easy to make controlled variations of a kind which would be almost impossible to achieve by physical changes to a violin. The typical process is to start from the measured response of a chosen violin, then use that as a basis for a number of modified "virtual instruments" in which, for example, individual resonances are changed in frequency, amplitude or damping. Psychoacoustical test methods can then be used to find the threshold for detection of any particular change, and also to obtain statistically significant data on quality judgements made by listeners.</p>
+
+<h2>Links</h2>
+
+<ul>
+<li><a href="http://www.eng.cam.ac.uk/news/stories/2006/violins/">Department of Engineering Page</a></li>
+</ul>
+</div>
+
+<div id="footer">
+<hr />
+<p>Return to <a href="../classes/index.htm">teaching resources</a></p>
+
+<p>A.C. Norman<br />Pembroke College, Cambridge<br />2008</p>
+
+<p>
+  <a href="http://validator.w3.org/check?uri=referer">
+    <img style="border:0;width:88px;height:31px"
+         src="../img/valid-xhtml10-blue.png"
+         alt="Valid XHTML 1.0 Transitional" height="31" width="88" /></a>
+  <a href="http://jigsaw.w3.org/css-validator/check/referer">
+    <img style="border:0;width:88px;height:31px"
+         src="../img/vcss-blue.gif"
+         alt="Valid CSS!" /></a>
+  <a rel="license" href="../acninfo/copyright.htm">
+    <img style="border:0;width:88px;height:31px"
+	 src="../acninfo/88x31.png"
+	 alt="Creative Commons Licence" /></a>
+</p>
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+
+
+%% LaTeX style sheet to load a number of useful particles packages
+%% 2011-10-11
+%%
+%% Andrew C. Norman
+%% Bishop Heber High School
+%% Chester Road, MALPAS. SY14 8JD
+
+\ProvidesPackage{acn-particlestyle}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\usepackage{siunitx}
+
+\usepackage{hepnames}
+%% note error in hepnames, causing \PXizero to diplay as its antiparticle
+%%
+%%---------------------------- Original Message ----------------------------
+%%Subject: Re: Xi zero in hepnames.sty, heppennames.sty
+%%From:    "Andy Buckley" <andy.buckley @ ed.ac.uk>
+%%Date:    Sun, September 4, 2011 14:49
+%%To:      "A.C. Norman" <############# @ ##########>
+%%--------------------------------------------------------------------------
+%%
+%%On 02/09/11 19:11, A.C. Norman wrote:
+%%>
+%%> hepnicenames \PXizero and heppennames \PgXz both give an anti-xi-zero
+%%> symbol, (i.e. the same as \APXizero and \PagXz)
+%%>
+%%> Perhaps I just got an old version of the .sty sheets, but I downloaded it
+%%> last night...
+%%>
+%%> ...and of course, this can be sorted out by changing:
+%%> \DeclareRobustCommand{\PgXz}{\HepAntiParticle{\Xi}{}{0}\xspace}
+%%> to
+%%> \DeclareRobustCommand{\PgXz}{\HepParticle{\Xi}{}{0}\xspace}
+%%> in line 319 of heppennames.sty !
+%%> 
+%%> But thank you for your hepparticles package, makes writing teaching notes
+%%> in LaTeX so much easier for particle physics!
+%%
+%%Thanks Andrew,
+%%
+%%I've made the fix in the trunk and will get a new release out shortly.
+%%There are a couple of things that I want to check in hepparticles, too,
+%%such as the font choice, so I'll take the opportunity to check them out.
+%%Someday I may even get around to replacing the internal \raisebox
+%%badness with something that tweaks the constants in the TeX
+%%sub/superscript position formula... I've only been meaning to do that
+%%for 5 years!
+%%
+%%Cheers, and thanks for the compliments :)
+%%Andy
+%%
+%%-- 
+%%Dr Andy Buckley
+%%SUPA Advanced Research Fellow
+%%Particle Physics Experiment Group, University of Edinburgh
+%%
+%%The University of Edinburgh is a charitable body, registered in
+%%Scotland, with registration number SC005336.
+\usepackage{isotope}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{trees}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{decorations.markings}
+
+\tikzset{
+    boson/.style={decorate, decoration={snake}, draw=black},
+    photon/.style={decorate, decoration={snake}, draw=black},
+    electron/.style={draw=black, postaction={decorate},
+        decoration={markings,mark=at position .55 with {\arrow[draw=black]{latex}}}},
+    gluon/.style={decorate, draw=black,
+        decoration={coil,amplitude=4pt, segment length=5pt}} 
+}
