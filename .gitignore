@@ -1,0 +1,17 @@
+*~
+*.jpg
+*.png
+*.ps
+*.gif
+*.doc
+*.xls
+*.odt
+*.ods
+*.mp3
+*.pdf
+favicons/*
+fileicons/*
+form/*.pdf
+2012-0[0-9]-[0-2][0-9]-seds[*c]ript*
+acninfo/88x31.png
+
