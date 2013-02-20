@@ -29,22 +29,74 @@
 <ol>
   <li>Mouseover the center of each galaxy, waiting each time for the velocity data to "pop up".</li>
   <li>Measure the width on the screen of each galaxy in centimeters, e.g. 1.7.</li>
-  <li>Record the values (in any order) at <a href="http://www.wwu.edu/depts/skywise/hubble_lab.html">this page</a>.</li>
-  <li>Thereafter, follow the instructions there.</li>
+  <li>Record the values (in any order) in the blanks provided below.</li>
+  <li>Click on the "Tabulate Data" button.  Width measurements will be converted to distances.</li>
+  <li>Print the resulting page and follow the final instructions given there.</li>
 </ol>
 
 <img src="galaxies.gif" usemap="#galaxies.gif" width="600" height="400" alt="picture of galaxies" />
 <map id="galaxies.gif">
-      <area shape="circle" coords="486,342,32" href="hubble_lab.html" title="velocity = 1000 km/sec" alt="velocity = 1000 km/sec" />
-      <area shape="circle" coords="92,105,32" href="hubble_lab.html" title="velocity = 2500 km/sec" alt="velocity = 2500 km/sec" />
-      <area shape="circle" coords="151,308,16" href="hubble_lab.html" title="velocity = 15000 km/sec" alt="velocity = 15000 km/sec" />
-      <area shape="circle" coords="477,228,16" href="hubble_lab.html" title="velocity = 21000 km/sec" alt="velocity = 21000 km/sec" />
-      <area shape="circle" coords="492,81,15" href="hubble_lab.html" title="velocity = 25000 km/sec" alt="velocity = 25000 km/sec" />
-      <area shape="circle" coords="297,102,8" href="hubble_lab.html" title="velocity = 49000 km/sec" alt="velocity = 49000 km/sec" />
-      <area shape="circle" coords="336,196,8" href="hubble_lab.html" title="velocity = 55000 km/sec" alt="velocity = 55000 km/sec" />
-      <area shape="circle" coords="216,179,8" href="hubble_lab.html" title="velocity = 60000 km/sec" alt="velocity = 60000 km/sec" />
+<area shape="circle" coords="486,342,32" href="hubble_lab.html" title="velocity = 1000 km/sec" alt="velocity = 1000 km/sec" />
+<area shape="circle" coords="92,105,32" href="hubble_lab.html" title="velocity = 2500 km/sec" alt="velocity = 2500 km/sec" />
+<area shape="circle" coords="151,308,16" href="hubble_lab.html" title="velocity = 15000 km/sec" alt="velocity = 15000 km/sec" />
+<area shape="circle" coords="477,228,16" href="hubble_lab.html" title="velocity = 21000 km/sec" alt="velocity = 21000 km/sec" />
+<area shape="circle" coords="492,81,15" href="hubble_lab.html" title="velocity = 25000 km/sec" alt="velocity = 25000 km/sec" />
+<area shape="circle" coords="297,102,8" href="hubble_lab.html" title="velocity = 49000 km/sec" alt="velocity = 49000 km/sec" />
+<area shape="circle" coords="336,196,8" href="hubble_lab.html" title="velocity = 55000 km/sec" alt="velocity = 55000 km/sec" />
+<area shape="circle" coords="216,179,8" href="hubble_lab.html" title="velocity = 60000 km/sec" alt="velocity = 60000 km/sec" />
 </map>
-    
+
+<form id="G1" action="">
+<p>Galaxy 1<br />
+<input type="text" maxlength="6" size="4" name="text1" value="0" onchange="check(this)" /> km/sec<br />
+<input type="text" maxlength="6" size="4" name="text2" value="0" onchange="verify(this)" /> centimeters</p>
+</form>
+
+<form id="G2" action="">
+<p>Galaxy 2<br />
+<input type="text" maxlength="6" size="4" name="text1" value="0" onchange="check(this)" /> km/sec<br />
+<input type="text" maxlength="6" size="4" name="text2" value="0" onchange="verify(this)" /> centimeters</p>
+</form>
+
+<form id="G3" action="">
+<p>Galaxy 3<br />
+<input type="text" maxlength="6" size="4" name="text1" value="0" onchange="check(this)" /> km/sec<br />
+<input type="text" maxlength="6" size="4" name="text2" value="0" onchange="verify(this)" /> centimeters</p>
+</form>
+
+<form id="G4" action="">
+<p>Galaxy 4<br />
+<input type="text" maxlength="6" size="4" name="text1" value="0" onchange="check(this)" /> km/sec<br />
+<input type="text" maxlength="6" size="4" name="text2" value="0" onchange="verify(this)" /> centimeters</p>
+</form>
+
+<form id="G5" action="">
+<p>Galaxy 5<br />
+<input type="text" maxlength="6" size="4" name="text1" value="0" onchange="check(this)" /> km/sec<br />
+<input type="text" maxlength="6" size="4" name="text2" value="0" onchange="verify(this)" /> centimeters</p>
+</form>
+
+<form id="G6" action="">
+<p>Galaxy 6<br />
+<input type="text" maxlength="6" size="4" name="text1" value="0" onchange="check(this)" /> km/sec<br />
+<input type="text" maxlength="6" size="4" name="text2" value="0" onchange="verify(this)" /> centimeters</p>
+</form>
+
+<form id="G7" action="">
+<p>Galaxy 7<br />
+<input type="text" maxlength="6" size="4" name="text1" value="0" onchange="check(this)" /> km/sec<br />
+<input type="text" maxlength="6" size="4" name="text2" value="0" onchange="verify(this)" /> centimeters</p>
+</form>
+
+<form id="G8" action="">
+<p>Galaxy 8<br />
+<input type="text" maxlength="6" size="4" name="text1" value="0" onchange="check(this)" /> km/sec<br />
+<input type="text" maxlength="6" size="4" name="text2" value="0" onchange="verify(this)" /> centimeters</p>
+</form>
+
+<p><input type="button" value="Tabulate Data" onclick="tabulateData()" id="button1" name="button1" />
+<input type="button" value="Reset All" onclick="resetData()" id="button2" name="button2" /></p>
+
 </div>
 
 <div id="footer">
@@ -68,6 +120,279 @@
 </div>
 
 </div>
+
+<script type="text/javascript">
+<!--
+function tabulateData() {
+	var P1A = G1.text1.value
+	var P1B = G1.text2.value
+	var P2A = G2.text1.value
+	var P2B = G2.text2.value
+	var P3A = G3.text1.value
+	var P3B = G3.text2.value
+	var P4A = G4.text1.value
+	var P4B = G4.text2.value
+	var P5A = G5.text1.value
+	var P5B = G5.text2.value
+	var P6A = G6.text1.value
+	var P6B = G6.text2.value
+	var P7A = G7.text1.value
+	var P7B = G7.text2.value
+	var P8A = G8.text1.value
+	var P8B = G8.text2.value
+	var d1 = 5
+	var dist1 = (d1)/(P1B)
+	var dist2 = (d1)/(P2B)
+	var dist3 = (d1)/(P3B)
+	var dist4 = (d1)/(P4B)
+	var dist5 = (d1)/(P5B)
+	var dist6 = (d1)/(P6B)
+	var dist7 = (d1)/(P7B)
+	var dist8 = (d1)/(P8B)
+	
+	document.write('\
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">\
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB">\
+<head>\
+<title>ACN: Hubble Investigation</title>\
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />\
+<link rel="shortcut icon" href="../../favicons/heber.ico"/>\
+<link rel="stylesheet" type="text/css" href="../../styles/acnstyle.css" media="screen" />\
+</head>\
+<body>\
+<div id="content">\
+<div id="body">\
+');
+	document.write("<h1>Hubble's Law Investigation</h1>\
+<h2>Graph</h2>");
+	document.write('<img src="graph.gif" alt="graph paper" /><br />\
+<h2>Data</h2>\
+<table border="1">\
+<tr>\
+<th>Galaxy</th>\
+<th>Velocity / km s<sup>-1</sup></th>\
+<th>Distance / billion lightyears</th>\
+</tr>\
+');
+
+	document.write("<tr>\
+<td>1</td>\
+<td>" + P1A + "</td>\
+<td>");
+	var ch = new String(dist1);
+	for (i = 0;  i < 4;  i++)
+	{
+		ch2 = ch.charAt(i);	//Grab a char at position i
+		document.write(ch2);
+	};	
+	document.write("</td>\
+</tr>");
+
+	document.write("<tr>\
+<td>1</td>\
+<td>" + P2A + "</td>\
+<td>");
+	var ch = new String(dist2);
+	for (i = 0;  i < 4;  i++)
+	{
+		ch2 = ch.charAt(i);	//Grab a char at position i
+		document.write(ch2);
+	};	
+	document.write("</td>\
+</tr>");
+
+	document.write("<tr>\
+<td>1</td>\
+<td>" + P3A + "</td>\
+<td>");
+	var ch = new String(dist3);
+	for (i = 0;  i < 4;  i++)
+	{
+		ch2 = ch.charAt(i);	//Grab a char at position i
+		document.write(ch2);
+	};	
+	document.write("</td>\
+</tr>");
+
+	document.write("<tr>\
+<td>1</td>\
+<td>" + P4A + "</td>\
+<td>");
+	var ch = new String(dist4);
+	for (i = 0;  i < 4;  i++)
+	{
+		ch2 = ch.charAt(i);	//Grab a char at position i
+		document.write(ch2);
+	};	
+	document.write("</td>\
+</tr>");
+
+	document.write("<tr>\
+<td>1</td>\
+<td>" + P5A + "</td>\
+<td>");
+	var ch = new String(dist5);
+	for (i = 0;  i < 4;  i++)
+	{
+		ch2 = ch.charAt(i);	//Grab a char at position i
+		document.write(ch2);
+	};	
+	document.write("</td>\
+</tr>");
+
+	document.write("<tr>\
+<td>1</td>\
+<td>" + P6A + "</td>\
+<td>");
+	var ch = new String(dist6);
+	for (i = 0;  i < 4;  i++)
+	{
+		ch2 = ch.charAt(i);	//Grab a char at position i
+		document.write(ch2);
+	};	
+	document.write("</td>\
+</tr>");
+
+	document.write("<tr>\
+<td>1</td>\
+<td>" + P7A + "</td>\
+<td>");
+	var ch = new String(dist7);
+	for (i = 0;  i < 4;  i++)
+	{
+		ch2 = ch.charAt(i);	//Grab a char at position i
+		document.write(ch2);
+	};	
+	document.write("</td>\
+</tr>");
+
+	document.write("<tr>\
+<td>1</td>\
+<td>" + P8A + "</td>\
+<td>");
+	var ch = new String(dist8);
+	for (i = 0;  i < 4;  i++)
+	{
+		ch2 = ch.charAt(i);	//Grab a char at position i
+		document.write(ch2);
+	};	
+	document.write("</td>\
+</tr>\
+</table>");
+	
+	document.write('\
+<h2>Instructions</h2>\
+<ol>\
+<li>Print out this page and plot the data on the graph.</li>\
+<li>Draw a straight line that goes as close as possible through the points.</li>');
+document.write("<li>The slope of that line (<var>y</var>/<var>x</var>) is your estimation of Hubble's Constant.</li>");
+	document.write('\
+</ol>\
+</div>\
+<div id="footer">\
+<hr />\
+<p><em>Adapted from a resource developed by <a href="http://www.wwu.edu/" >Western Washington University</a></em></p>\
+<p>A.C. Norman<br />Bishop Heber High School<br />2013</p>\
+</div>\
+</div>\
+</body>\
+</html>\
+');
+
+}
+//-->
+</script>
+<script type="text/javascript">
+<!--
+function verify(data){
+	var tempValue = data.value
+	if(tempValue == "")
+	{  	
+		alert("Fields may not be left blank");
+		data.value = 0;
+		return(false);
+	}
+	
+	if(tempValue < .4)
+	{
+		alert("Really?  That small?  Please measure again.");
+		data.value = 0;
+		return(false);
+	}
+	
+	if(tempValue > 6)
+	{
+		alert("Really? That big? Please measure again.");
+		data.value = 0;
+		return(false);
+	}
+	
+	var checkOK="0123456789.";	//Valid characters
+	var checkStr = tempValue;
+	var allValid = true;
+	
+	if(tempValue != ""){
+	for (i = 0;  i < tempValue.length;  i++)
+	{
+		ch = tempValue.charAt(i);	//Grab a char at position i
+		for (j = 0;  j < checkOK.length;  j++)
+			if (ch == checkOK.charAt(j)) break;
+			if (j == checkOK.length)
+			{
+				allValid = false;
+				alert("Numbers only please.");
+				data.value = 0;
+				break;
+			}
+	}
+	}
+}
+function check(data){
+	var tempValue = data.value
+	if(tempValue == "")
+	{  	
+		alert("Fields may not be left blank");
+		data.value = 0;
+		return(false);
+	}
+		
+	var checkOK="0123456789.";	//Valid characters
+	var checkStr = tempValue;
+	var allValid = true;
+	
+	if(tempValue != ""){
+	for (i = 0;  i < tempValue.length;  i++)
+	{
+		ch = tempValue.charAt(i);	//Grab a char at position i
+		for (j = 0;  j < checkOK.length;  j++)
+			if (ch == checkOK.charAt(j)) break;
+			if (j == checkOK.length)
+			{
+				allValid = false;
+				alert("Numbers only please.");
+				data.value = 0;
+				break;
+			}
+	}
+	}
+}
+// -->
+</script>
+<script type="text/javascript">
+<!--
+function resetData(){
+	G1.reset();
+	G2.reset();
+	G3.reset();
+	G4.reset();
+	G5.reset();
+	G6.reset();
+	G7.reset();
+	G8.reset();
+}
+// -->
+</script>
+
 
 </body>
 
