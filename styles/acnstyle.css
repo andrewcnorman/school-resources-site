@@ -40,6 +40,11 @@ a:visited {
     color: #552299;
     background: transparent;
 }
+a.external
+{
+    background:url(../fileicons/external.png) center right no-repeat;
+    padding-right:16px
+}
 h1 {
     text-align: center;
 }
@@ -91,6 +96,16 @@ li {
 {
     margin: 0.3em 0em;
     padding-left: 0em;
+    list-style-position: inside;
+    list-style-type: disc;
+    text-indent: 0em;
+}
+/* Provides override for sublists of the below */
+.resources li.normal
+{
+    margin: 0.3em 0em;
+    padding-left: 0em;
+    list-style: disc outside none;
     list-style-position: inside;
     list-style-type: disc;
     text-indent: 0em;
