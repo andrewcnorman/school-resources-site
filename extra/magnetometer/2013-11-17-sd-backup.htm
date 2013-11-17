@@ -1,0 +1,124 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB">
+<head>
+<title>ACN: Magnetometer at Schools Project</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<link rel="shortcut icon" href="../../favicons/heber.ico"/>
+<link rel="stylesheet" type="text/css" href="../../styles/acnstyle.css" media="screen" />
+<meta name="description" content="Schools Magnetometer Project at Bishop Heber High School" />
+<meta name="keywords" content="physics, school, extra-curricular, magnetometer"/>
+<meta name="robots" content="index, follow" />
+</head>
+
+<body>
+
+<div id="content">
+
+<div id="body">
+
+<h1>SD card backup image</h1>
+
+<p>When the magnetometer arrived from Dr Steve Marple of Lancaster University, the image on the Raspberry Pi image had not been expanded, 
+so that we can make up a backup of the initial configuration.  This will allow us to recreate the initial configuration on an SD card in the future, in case of anything going wrong.</p>
+
+<p>NB The image does need to be expanded to fill the whole SD card when the Pi is run.  Logging in as <code>pi</code> and running<br />
+<code>sudo raspi-config</code><br />
+will enable this to be done, selecting <code>Expand Filesystem</code>, and then <code>Finish</code> followed by rebooting the Pi.</p>
+
+<p>The <a href="./docs/manual.pdf">manual [PDF]</a> manual has a section on configuring the SD image. We can ignore that, as this has already been done at Lancaster.
+The SSH host keys have also been regenerated, so the ones on our Pi are unique.</p>
+
+<code>
+username: pi<br />
+password: *********<br />
+hostname: awn-mal.local<br />
+</code>
+
+<h2>Generating the backup image</h2>
+
+<p>The method we used to create the backup image was found on the <a class="external" href="http://www.raspberrypi.org/phpBB3/viewtopic.php?t=54125">raspberry pi forums</a>.  We used a KNOPPIX liveCD running on a staff laptop to complete the backup, and the instructions below are adapted from the method linked to, but with the actual commands we used.</p>
+
+<p>Since the SD card is bigger than the partitions there is no need to copy the whole card.  It is quicker and uses less hard drive space to store the image is we copy just what is needed.</p>
+
+<ol>
+<li>Boot up KNOPPIX on laptop.</li>
+<li>Open file manager and find somewhere to store the image (somewhere on the hard disk of the computer).</li>
+<li>Open a terminal and run<br />
+<code>
+$ cat /etc/mtab
+</code></li>
+<li>Insert the SD card into the SD card slot on the laptop.  You should see some extra devices appear in the file manager, and if you run the previous command again, you will find some new devices are mounted.  These will be the SD card.  In our case, the extra devices are <code>/dev/sdb1</code> and <code>/dev/sdb2</code>.</li>
+<li>In the terminal, you can check the SD card partitions out visually with<br />
+<code>$ gksudo gparted /dev/sdb &</code><br />
+This will show the partitions on the SD card, in this case occupying about 3GB:
+<img class="display" src="./img/gparted-scr.png" width="350" alt="gparted screenshot" />
+The MBR is stored in the the first 512 bytes of the disk. It consist of 3 parts:
+<ul>
+<li>The first 446 bytes contain the boot loader.</li>
+<li>The next 64 bytes contain the partition table (4 entries of 16 bytes each, one entry for each primary partition).</li>
+<li>The last 2 bytes contain an identifier</li>
+</ul>
+</li>
+<li>To save the MBR into the file <code>mag-mbr.img</code>:<br />
+<code>
+$ sudo dd if=/dev/sdb of=/media/sda2/anorman/mag-mbr.img bs=512 count=1
+</code></li>
+<li>Now it is possible to save each of the partitions into a backup image file:<br />
+<code>
+$ sudo dd if=/dev/sdb1 of=/media/sda2/anorman/mag-partition1.img bs=1024<br />
+$ sudo dd if=/dev/sdb2 of=/media/sda2/anorman/mag-partition2.img bs=1024
+</code>
+<li>These image files can be compressed if desired, to save space on disk.</li>
+</ol>
+
+<h2>Restoring from backup image (<em>untested</em>)</h2>
+
+<p>This section details how to restore the SD card from the images created above <em>(be careful : this could destroy your existing partition table and with it access to all data on the disk)</em>.</p>
+
+<h3>Step 1: Restoring MBR</h3>
+
+<p><em>This is dangerous. You must be certain that the MBR image with the Partition Table matches that of the partitions you are going to put into them otherwise the data will be corrupt on the SD Card.</em><br/>
+<code>$ sudo dd if=/media/sda2/anorman/mag-mbr.img of=/dev/sdb</code></p>
+
+<p>If you only want to restore the boot loader, but not the primary partition table entries, just restore the first 446 bytes of the MBR.<br />
+<code>$ sudo dd if=/media/sda2/anorman/mag-mbr.img of=/dev/sdb bs=446 count=1</code></p>
+
+<p>To restore only the partition table.<br />
+<code>$ sudo dd if=/media/sda2/anorman/mag-mbr.img of=/dev/sdb bs=1 skip=446 count=64</code></p>
+
+<h3>Step 2 - Restore the Partitions</h3>
+
+<code>
+$ sudo dd if=/media/sda2/anorman/mag-partition1.img of=/dev/sdb1 bs=1024<br />
+$ sudo dd if=/media/sda2/anorman/mag-partition2.img of=/dev/sdb2 bs=1024
+</code>
+
+</div>
+
+<div id="footer">
+<hr />
+<p>Return to <a href="./index.htm">magnetometer project page</a></p>
+
+<p>A.C. Norman<br />Bishop Heber High School<br />2013</p>
+
+<p>
+  <a href="http://validator.w3.org/check?uri=referer">
+    <img style="border:0;width:88px;height:31px"
+         src="../../img/valid-xhtml10-blue.png"
+         alt="Valid XHTML 1.0 Transitional" height="31" width="88" /></a>
+  <a href="http://jigsaw.w3.org/css-validator/check/referer">
+    <img style="border:0;width:88px;height:31px"
+         src="../../img/vcss-blue.gif"
+         alt="Valid CSS!" /></a>
+  <a rel="license" href="../../acninfo/copyright.htm">
+    <img style="border:0;width:88px;height:31px"
+	 src="../../acninfo/88x31.png"
+	 alt="Creative Commons Licence" /></a>
+</p>
+</div>
+
+</div>
+
+</body>
+</html>
