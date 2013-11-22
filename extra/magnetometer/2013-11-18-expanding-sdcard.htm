@@ -17,22 +17,20 @@
 
 <div id="body">
 
-<h1>Raspberry Pi details</h1>
+<h1>SD card backup image</h1>
 
-<p>Here are some details of the raspberry pi used as a base station which might be helpful to people involved in the magnetometer project.</p>
+<p>When the magnetometer arrived from Dr Steve Marple of Lancaster University, the image on the Raspberry Pi image had not been expanded, 
+so that we could make up a backup of the initial configuration.</p>
 
-<img class="display" src="./img/base-unit.jpg" width="400" alt="The raspberry pi base unit" />
+<p>On 18 November 2013, Ciaran O'Shea expanded the image by loggin in via <code>ssh</code> as <code>pi</code> and running<br />
+<code>sudo raspi-config</code><br />
+followed by selecting <code>Expand Filesystem</code>, and then <code>Finish</code> followed by rebooting the Pi.</p>
 
-<code>
-username: pi<br />
-password: ********* (see Mr Norman)<br />
-hostname: awn-mal.local<br />
-MAC address: b8:27:eb:42:15:6d<br />
-Host key fingerprints<br />
-RSA: c3:8f:f3:2b:4e:26:89:71:93:32:c2:4c:74:63:1e:30<br />
-DSA: 20:0d:3f:7e:db:ba:44:d2:8b:0e:0f:3d:20:e4:02:3b<br />
-ECDSA: 9d:fb:69:8d:bf:93:cd:f7:2c:1c:e7:e5:89:80:da:29
-</code>
+<p>This unexpectedly had the effect of regenerating the <code>ssh</code> keys for the Pi.</p>
+
+<h2>Testing data connexion</h2>
+
+<p>Ciaran did all of the above using the school network, thus confirming that the network point in L5 which we might use for the raspberry pi works.</p>
 
 </div>
 
