@@ -74,6 +74,12 @@ li {
     width: 42em;/* Short line length for readability */
     margin: 0 auto 0 auto;/* To reliably float in the center of the page */
     }
+main{ /* HTML5 main (content) */
+    min-height:100%;
+    position:relative;
+    width: 42em;/* Short line length for readability */
+    margin: 0 auto 0 auto;/* To reliably float in the center of the page */
+}
 #body {
     padding-top:1em;
     font-size: 1.6em;  /* 16pt */
@@ -86,7 +92,18 @@ li {
     height:11em;/* Height of the footer */
     font-size: 1.6em;  /* 16pt */
 }
+footer{ /* HTML5 footer */
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:11em;/* Height of the footer */
+    font-size: 1.6em;  /* 16pt */
+}
 #footer p {
+    margin:1em;
+    font-size: 0.75em;
+}
+footer p {
     margin:1em;
     font-size: 0.75em;
 }
