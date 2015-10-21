@@ -9,6 +9,11 @@
 *.ods
 *.mp3
 *.mp4
+*.ogg
+*.webm
+*.swf
+*.svg
+*.mov
 *.pdf
 favicons/*
 fileicons/*

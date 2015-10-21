@@ -167,3 +167,8 @@ footer p {
     list-style: url(../fileicons/xls.gif);
     list-style-position: inside;
 }
+.resources li.multimedia-embed
+{
+    list-style: none;
+    list-style-position: inside;
+}
