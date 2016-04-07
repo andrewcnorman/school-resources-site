@@ -3,8 +3,7 @@ school-resources-site
 
 This repository contains xhtml files for a mini-website providing 
 an interface to resources written to support learners. These were 
-written by Andrew C. Norman (Teacher of Physics, Bishop Heber 
-High School).
+written by Andrew C. Norman (Physics Department, Radley College).
 
 License
 -------
