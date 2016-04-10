@@ -1,3 +1,6 @@
 ErrorDocument 404 /acninfo/404.html
 DirectoryIndex index.html index.htm
 Options -Indexes
+#deny access to the top-level git repository
+RewriteEngine On
+RewriteRule \.git - [F,L]
