@@ -4,17 +4,38 @@
 # Andrew C. Norman
 # Radley College
 # 2016
+
 #
 # Custom error handling
+#
 ErrorDocument 404 /acninfo/404.html
+
+#
 # What to do if directory ending in / is requested
+#
 DirectoryIndex index.html index.htm
+
+#
 # Don't list files in folders (can override by subdirectory if required)
+#
 Options -Indexes
-#deny access to the top-level git repository
+
+#
+# Prevent .htaccess and .htpasswd files from being viewed
+#
+<Files ".ht*">
+    Require all denied
+</Files>
+
+#
+# Deny access to the top-level git repository
+#
 RewriteEngine On
 RewriteRule \.git - [F,L]
+
+#
 # Block requests for emacs/vi standard filename~ files
+#
 <Files ~ "\~$">
     Order allow,deny
     Deny from all
