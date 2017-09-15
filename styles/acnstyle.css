@@ -11,7 +11,7 @@ body {
     background: #fff;
     font-size: 62.5%; /* Resets UA 16px common default such that 1em = 10px. Kudos to Richard Rutter. */
     line-height: 1.5; /* We can use unitless numbers here; they act as multiples of the font-size. */
-    font-family:Arial, Verdana, Helvetica, sans-serif;/*Set the same as E:HEBER*/
+    font-family:Arial, Verdana, Helvetica, sans-serif; /*Set the same as E:HEBER*/
 }
 address {
     display:inline;
@@ -171,4 +171,17 @@ footer p {
 {
     list-style: none;
     list-style-position: inside;
+}
+figure { /* HTML5 figure environment (added 2017-09) */
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin: auto; /* to center */
+}
+figcaption { /* HTML5 figcaption environment (added 2017-09) */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+    font-size:80%
 }
