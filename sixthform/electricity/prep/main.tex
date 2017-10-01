@@ -1,0 +1,289 @@
+% main.tex 
+% last edited 2017-09-31
+\documentclass[12pt]{article}
+% put \usepackage commands here
+\usepackage[pdfusetitle,pdfauthor={A.C. Norman},pdfcreator={LaTeX}]{hyperref} % for links within document
+% I'm going to use some maths, so:
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{siunitx} % allows you to write quantities as numbers times units
+\usepackage{enumerate} %on the fly enumerate styles
+\usepackage{booktabs} % defines toprule midrule and bottomrule
+\usepackage[left=2cm,top=1.5cm,hcentering,a4paper]{geometry} % adjusts the size and location of the page on the paper
+\usepackage{graphicx} % to allow the inclusion of pictures
+
+\title{Superconductivity essay}
+\author{\textsc{A.C. Norman}
+\\ \href{mailto:ACN.Norman@radley.org.uk}{\texttt{ACN.Norman@radley.org.uk}} }
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+
+Your prep is to write an essay on superconductivity.  This is to get you to do some academic writing early in the course (good practice for those practical write ups to come when you have to `research, reference and report').  You should do this prep in \LaTeX .
+    
+This is a sample \LaTeX\ document. You might wish to use it as a starting point for your document. I give examples of basic \LaTeX\ writing.
+
+This document works with \LaTeXe , which is the standard version of \LaTeX\ since 2003.
+
+\end{abstract}
+
+\section{Introduction}
+
+\LaTeX\ is {\em the} typesetting program to use in scientific writing.
+It is good for writing anything from a one page letter to a six-hundred page book.
+You write your document in a file with a name that ends in {\tt .tex} using your favourite text editor. 
+The file that made this document is called {\tt main.tex}.  I'd encourage you to find a copy of this file, because I'm not going to write out how to make a title, how to make section headings, etc. --- it's easier for you to just look at this example file.
+ 
+Get it from
+\begin{center}
+  {\tt{http://www.andrewcnorman.net/sixthform/electricity/prep/main.tex}}
+\end{center}
+
+\subsection{Prose}
+
+Where your document consists of prose, you just type prose in your
+editor, and \LaTeX\ typesets it for you.
+
+A blank line starts a new paragraph. So prose is easy to do. If you
+want to emphasize a few words then you use a command like
+\verb+\emph{+\ldots\verb+}+ for \emph{emphasis}, enclosing the relevant words
+in braces.\footnote{
+\label{that_one} 
+Take a look at the file {\tt main.tex} while you are reading this, 
+so you can see what commands generated what.
+Oh, by the way: never use footnotes -- if something is worth saying,
+say it in the main text!
+}
+%
+%	If you are reading this, well done! This is a demonstration of 
+%	the `%' symbol, which allows you to put comments that 
+%	latex ignores. 
+%
+%	This next line is a label for this subsection, which gets referred 
+%	to later on. Don't confuse it with the label for the footnote 
+%	which is 9 lines up in this document. 
+%
+\label{blank_line}
+
+\subsection{More exciting things}
+Where \LaTeX\ really gets cool is the organisation of the logical
+structure of the document, and the typesetting of equations.  Notice
+I put a footnote a little while ago. That footnote was numbered
+\ref{that_one} automatically, and I am able to \emph{refer} to it as
+footnote ``\ref{that_one}'' by using a \emph{label} that I stuck in
+the footnote. Similarly, sections, subsections, and equations are
+automatically numbered, and can be labelled and automatically
+referred to.  We will see an example of this in section
+\ref{equation_section}.  This is especially useful when you want to
+say something like:
+
+\begin{quotation}
+We substitute equation (\ref{eq1}) into equation (\ref{eq2}) using
+equation (\ref{approx}).
+\end{quotation}
+
+It is useful because when you rewrite the paper and include an
+equation before any of equations (\ref{eq1}), (\ref{eq2}), and
+(\ref{approx}), the references to those equations in the text are all
+automatically changed.
+
+ Other good features of \LaTeX\ are: 
+\begin{enumerate}
+\item It is easy to enumerate lists of things. 
+\item Enumerated lists are typeset beautifully. 
+\item Furthermore, 
+\begin{enumerate}
+\item You can have lists within lists.
+\item Those sublists are numbered in a sensible manner.
+\end{enumerate}
+\end{enumerate}
+In the {\tt main.tex} file I laid out the above list in a nice
+logical way, but this is not obligatory. \LaTeX\ doesn't care how you
+lay out the {\tt .tex} file at all in terms of white space. Only if
+there is an entire blank line is it possible that \LaTeX\
+cares. Blank lines start new paragraphs, as I said in section
+\ref{blank_line}.
+
+You can also itemize things without numbering them if you want:
+\begin{itemize}
+\item The first item. 
+\item The second item. 
+\end{itemize}	
+
+\section{Equations}
+\label{equation_section}
+
+In the text, you can have mathematical symbols enclosed by \verb+$+
+symbols, such as the constant $\alpha$ which multiplies $x$ and $y$.
+Subscripts and superscripts are easy: $a_1 x^2 + a_2 x + a_3 =
+c_0^2$.  If there is more than one character in your subscript then
+you put it braces: $m_{\alpha} = p_{i|j}$.  You can also display
+equations:
+\begin{equation}
+	\int   P(p_i) p_i >  \frac{ F_i }{ \sum_{i'} F_{i'} }
+	\label{eq2}
+\end{equation}
+Notice how \LaTeX\ changes the typesetting of a mathematical
+expression depending whether it is in a fraction or sitting in the
+main part of the equation:
+\begin{equation}
+	\sum_{i'} F_{i'}  \leq \frac{ F_i }{ \int   P({p_i}) p_i }
+	\label{approx}
+\end{equation}
+It is good to get parentheses the right size. Do this by using {\tt
+\verb+\left(+} and {\tt \verb+\right)+} instead of `(' and `)'. Here is a silly
+example.
+\begin{equation}
+\left(	\int_0^{\infty}   P(p_i) p_i  \right)
+	=
+ \sqrt{ \left[ \frac{ F_i } { \left( \sum_{i'} F_{i'} \right) } \right]^2 }
+\label{eq3}
+\end{equation}
+
+Here is how to do an \emph{equation array} (this lets you line up the equals signs):
+\begin{align}
+x & \simeq y^2 \cos(y) \label{eq.unimportant}\\
+ & \gg    y^2 	
+\label{eq1}
+\end{align}
+
+Please number all your equations. Maybe {\em{you}\/} don't want
+to refer to equation \ref{eq.unimportant}, but perhaps someone else will!
+
+\LaTeX\ more or less forces you to produce a beautiful looking document, but it still allows you to do silly things like include big mathematical objects in sentences: 
+$M = \left[
+	\begin{array}{ccc}
+		3 & 2 & 1 \\
+		2 & 3 & 2 \\
+		1 & 2 & 3
+	\end{array} 
+	\right]
+$.
+
+\section{Including pictures}
+
+Including picture files is very easy in \LaTeX .  You can use the \verb+\includegraphics+ command.  In scientific publications it's often better to use a \verb+figure+ environment, which allows you to add a caption.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[height=0.25\textwidth]{tux.png}
+\end{center}
+\caption{Tux is a penguin character and the official mascot of the Linux kernel.  It was originally created by Larry Ewing using the GNU Image Manipulation Program (GIMP).}
+\label{fig1}
+\end{figure}
+
+\section{Making a bibliography}
+
+In academic writing, it is common to include a list of references in a paper, or a bibliography in a longer work such as a thesis or a book.  \LaTeX\ makes this easy to do.  You can include a bibliography with the \verb+thebibliography+ environment.  See the \ref{bib} section for an example of this: each entry starts with 
+\verb|[|\emph{label}\verb|]{|\emph{marker}\verb|}|
+
+The \emph{marker} is then usef to cite the book, article or paper within your document.  Thus, if you need to refer to a book you can do so: this sample document is based on one written by David MacKay, who wrote \cite{sewtha} and \cite{itila}.  This section on bibliographies is based on the one in \cite{lshort}.
+
+For larger projects, you might want to check out the Bib\TeX\ program.  It allows you to maintain a bibliographic database and then extract the references relevant to things you cited in your paper. The visual presentation of Bib\TeX{} generated bibliographies is based on a style sheets concept that allows you to create bibliographies following a wide range of established designs.
+
+\section{Tables}
+The default style of tables in latex produces tables that look like this:
+\begin{center}
+\begin{tabular}{|l|r|} \hline \hline 
+ \multicolumn{2}{|c|}{ {\sc Investment Costs} } \\ \hline
+ Stage 1 (FY 2013/14)   & \pounds 5000 \\
+ Stage 2 (FY 2014/15)	& \pounds 2000 \\ \hline  \hline
+\end{tabular}
+\end{center}
+
+but in my opinion (and the opinion of the authors of the {\tt{booktabs}}
+package) these tables look unprofessional.
+I use the booktabs package (see the top five lines of
+main.tex for the {\tt{usepackage}} command) and make tables that look like this:
+\begin{center}
+\begin{tabular}{lr} 
+\toprule
+ \multicolumn{2}{c}{ {\sc Investment Costs} } \\ 
+ \midrule
+ Stage 1 (FY 2013/14)   & \pounds 5000 \\
+ Stage 2 (FY 2014/15)	& \pounds 2000 \\ 
+ \bottomrule
+\end{tabular}
+\end{center}
+Notice the use of the commands {\tt{toprule}},  {\tt{midrule}},
+and  {\tt{bottomrule}}, in place of {\tt{hline}}.
+Vertical lines are not necessary.
+
+\appendix
+\section{And finally...}
+If you need to know more, such as how to do particular mathematical symbols, how to make tables, etc., the best book to refer to when
+using \LaTeX\ is Leslie Lamport's blue book \cite{lamport}.
+
+\subsection{Customizing \LaTeX}
+If there is a word or symbol, or indeed a whole phrase that you use
+often in your document, then you can define an alias for it. For
+example I abbreviate \verb+{\bf x}+ to \verb+\bx+, using the command
+\verb+\newcommand{\bx}{{\bf x}}+.
+\newcommand{\bx}{{\bf x}}
+That makes $\bx$ easier to type and easier to read in the {\tt .tex}
+file.  It is a good idea to put all your \verb+newcommand+
+declarations at the beginning of your {\tt .tex file}.
+
+\begin{thebibliography}{99}
+\label{bib}
+\bibitem{sewtha} D.J.C.~MacKay: \emph{Sustainable Energy Without the Hot Air}, UIT Cambridge, 2009
+\bibitem{itila} D.J.C.~MacKay: \emph{Information theory, Inference and Learning Algorithms}, Cambridge University Press, 2003
+\bibitem{lshort} Tobias Oetiker: \emph{The Not So Short Introduction to \LaTeXe}, 2006
+\bibitem{lamport} Leslie Lamport: \emph{\LaTeX: A Document Preparation System}
+\end{thebibliography}
+
+\newpage
+
+\section*{Mark Scheme}
+\begin{tabular}{cl}
+2 & \textbf{References}\\
+& \hspace*{3em}\begin{minipage}{0.7\textwidth}
+\begin{enumerate}[1 ]\setcounter{enumi}{-1}
+\item no references
+\item at least one reference
+\item at least three references cross referencing in body of text
+\end{enumerate}
+\end{minipage} \\
+\\
+2 & \textbf{Images and graphs}\\
+& \hspace*{3em}\begin{minipage}{0.7\textwidth}
+\begin{enumerate}[1 ]\setcounter{enumi}{-1}
+\item no images/graphs
+\item images but with no relevance or not referred to in the text
+\item image/graphs referred to in the text
+\end{enumerate}
+\end{minipage} \\
+\\
+2 & \textbf{Grammar, spelling, punctuation}\\
+& \hspace*{3em}\begin{minipage}{0.7\textwidth}
+\begin{enumerate}[1 ]\setcounter{enumi}{-1}
+\item poor with major errors
+\item satisfactory, minor errors
+\item good with no errors
+\end{enumerate}
+\end{minipage} \\
+\\
+4 & \textbf{Content}\\
+& \hspace*{3em}\begin{minipage}{0.7\textwidth}
+\begin{enumerate}[1 ]\setcounter{enumi}{-1}
+\item no relevant content
+\item minor relevant content
+\item Satisfactory content
+\item Good content
+\item Excellent content
+\end{enumerate}
+Content refers to:\\
+Critical temperature, types / examples / comparisons of superconducting materials, how they're processed, uses of superconductors, problems, Meissner effect, history, definitions, diamagnetism.
+\end{minipage} \\
+\\
+\hline
+\\
+\textbf{10} & \textbf{Maximum score} Marks deducted for being too long (over 1500 words)\\
+\end{tabular}
+
+\end{document} 
